@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <array-credit-report
+sandbox="false"
+defaultBureau="all"
+></array-credit-report>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const appKey = urlParams.get('appKey')
+    const displaytoken = urlParams.get('displayToken')
+    const productCode = urlParams.get('productCode')
+    const reportKey = urlParams.get('reportKey')
+   
+   const scriptOne = document.createElement('script')
+   scriptOne.src = `https://embed.array.io/cms/array-web-component.js?appKey=${appKey}`
+ 
+   const scriptTwo = document.createElement('script')
+   scriptOne.src = `https://embed.array.io/cms/array-credit-report.js?appKey=${appKey}`
+   document.head.append(scriptTwo, scriptOne)
+
+   const component = document.querySelector('array-credit-report')
+   component.setAttribute('appkey', appKey)
+   component.setAttribute('displaytoken', displaytoken)
+   component.setAttribute('productcode', productCode)
+   component.setAttribute('reportkey', reportKey)
+ </script>
+</body>
+</html>
